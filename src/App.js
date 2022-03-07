@@ -1,4 +1,5 @@
 import './App.css';
+import BlogCard from './BlogCard';
 
 function App() {
   
@@ -21,12 +22,7 @@ function App() {
   ]
 
   const blogCards = blogArr.map( (item,pos) => {
-    console.log(item,pos)
-    return <div className='BlogCard' key={item.id}>
-      <h3>{item.title}</h3>
-      <p>id: {item.id}</p>
-      <p>{item.description}</p>
-    </div>
+    return <BlogCard key={pos} title={item.title} description={item.description} id={item.id}/>
   })
     
 
