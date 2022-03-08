@@ -1,8 +1,12 @@
-import './App.css';
+import React from 'react';
 import BlogCard from './BlogCard';
+import './App.css';
 
 function App() {
-  
+  let state = {
+    showBlogs: true
+  };
+
   const blogArr = [
     {
       id: 0,
@@ -19,18 +23,28 @@ function App() {
       title: 'Blog Title 3',
       description: 'This is the card description and it hasn´t any sense.'
     }
-  ]
+  ];
 
   const blogCards = blogArr.map( (item,pos) => {
     return <BlogCard key={pos} title={item.title} description={item.description} id={item.id}/>
-  })
+  });
+
+  const onHideBtnClick = () => {
+    state.showBlogs = !state.showBlogs;
+    console.log(state);
+  };
     
 
-  return (
+  return(
     <div className="App">
-      {blogCards}
+      <button onClick={onHideBtnClick}>{state.showBlogs ? 'Hide List' : 'Show List' }</button>
+      <br></br>
+      {
+        state.showBlogs ? blogCards : "☹"
+      }
     </div>
   );
+  
 }
 
 export default App;

@@ -4,7 +4,12 @@
   box-sizing: border-box;
   border-radius: 5px;
   box-shadow: 0 2px 5px #ccc;
-  background-color: rgb(255, 208, 208);
+  background-color: #20232a;
+  color: rgb(197, 165, 197);
+}
+
+.NewBlogCard h3 {
+  color: #61dafb;
 }
 
 @media (min-width: 992px){
