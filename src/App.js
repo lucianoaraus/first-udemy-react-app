@@ -1,11 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import BlogCard from './BlogCard';
 import './App.css';
 
 function App() {
-  let state = {
-    showBlogs: true
-  };
+  const [showBlogs, setShowBlogs] = useState(true);
 
   const blogArr = [
     {
@@ -29,18 +27,17 @@ function App() {
     return <BlogCard key={pos} title={item.title} description={item.description} id={item.id}/>
   });
 
-  const onHideBtnClick = () => {
-    state.showBlogs = !state.showBlogs;
-    console.log(state);
+  const onHide = () => {
+    setShowBlogs(!showBlogs)
   };
     
 
   return(
     <div className="App">
-      <button onClick={onHideBtnClick}>{state.showBlogs ? 'Hide List' : 'Show List' }</button>
+      <button onClick={onHide}>{showBlogs ? 'Hide List' : 'Show List' }</button>
       <br></br>
       {
-        state.showBlogs ? blogCards : "☹"
+        showBlogs ? blogCards : "☹"
       }
     </div>
   );
